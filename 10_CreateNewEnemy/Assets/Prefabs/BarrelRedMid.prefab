@@ -102,6 +102,7 @@ MonoBehaviour:
   Bullet: {fileID: 2522808960143744807, guid: 9e1d11452cadff54b9ffe2a090763dc1, type: 3}
   ShootPosition: {fileID: 3280896855847668831}
   _isBuyed: 0
+  _isCurrentWeapon: 0
 --- !u!1 &7890977737446529309
 GameObject:
   m_ObjectHideFlags: 0

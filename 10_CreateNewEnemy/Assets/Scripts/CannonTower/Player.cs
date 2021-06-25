@@ -9,9 +9,9 @@ using UnityEngine.Events;
 public class Player : MonoBehaviour
 {
 	[SerializeField] private int _maximumHealth;
-	[SerializeField] private List<Barrel> _currentTwobarrels;
 	[SerializeField] private Transform _barrelMainPositionInsideTower;
 	[SerializeField] private Transform _barrelStartPositionInsideTower;
+	[SerializeField] private List<Barrel> _currentTwobarrels = new List<Barrel>(2);
 
 	private List<Barrel> _barrels = new List<Barrel>();
 	private float _timePullBarrel = 0.25f;
@@ -30,7 +30,9 @@ public class Player : MonoBehaviour
 	private Animator _animator;
 
 	public int Money { get; private set; }
+
 	public List<Barrel>  Barrels => _barrels;
+	public List<Barrel>  CurrentTwoBarrels => _currentTwobarrels;
 
 	public event UnityAction<int, int> HealthChanged;
 	public event UnityAction<int> MoneyChanged;
@@ -53,6 +55,8 @@ public class Player : MonoBehaviour
 		InitiateBarrel(_currentTwobarrels[_currentNumBarrelFromList]);
 
 		_pullInBarrelJob = StartCoroutine(PullInBarrel());
+
+		Money = 500;
 
 		MoneyChanged?.Invoke(Money);
 	}
@@ -120,6 +124,45 @@ public class Player : MonoBehaviour
 
 			return true;
 		}
+	}
+
+	public bool SetCurrentWeapon(Barrel barrel)
+	{
+		Barrel currentMainBarrel = _currentTwobarrels[0];
+		Barrel currentBonusBarrel = _currentTwobarrels[1];
+
+		List<Barrel> currentBarrels = new List<Barrel>(2);
+
+		_barrels.Remove(barrel);
+
+		if (barrel.MainBarrel)
+			return ChangeTwoBarrels(barrel, currentBonusBarrel, currentMainBarrel);
+
+		if (!barrel.MainBarrel)
+			return ChangeTwoBarrels(currentMainBarrel, barrel, currentBonusBarrel);
+
+		return false;
+	}
+
+	private bool ChangeTwoBarrels(Barrel barrel0, Barrel barrel1, Barrel removeFromCurrent)
+	{
+		_currentTwobarrels.Clear();
+
+		_currentTwobarrels.Insert(0, barrel0);
+		_currentTwobarrels.Insert(1, barrel1);
+
+		foreach (var currentBarrel in _currentTwobarrels)
+		{
+			currentBarrel.ApplyCurrentWeapon(true);
+		}
+
+		if (removeFromCurrent != null)
+		{
+			removeFromCurrent.ApplyCurrentWeapon(false);
+			_barrels.Add(removeFromCurrent);
+		}
+
+		return true;
 	}
 
 	private IEnumerator PowerfulWeaponForTime()

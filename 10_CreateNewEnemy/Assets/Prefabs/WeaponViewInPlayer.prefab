@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1896832135844284368}
   - component: {fileID: 1896832135844284369}
   m_Layer: 5
-  m_Name: Sell Button
+  m_Name: Set Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -813,7 +813,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Buy
+  m_text: Set
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -968,9 +968,9 @@ GameObject:
   - component: {fileID: 1896832137274033244}
   - component: {fileID: 1896832137274033234}
   - component: {fileID: 1896832137274033235}
-  - component: {fileID: 1654818945969735738}
+  - component: {fileID: 2305615153341520439}
   m_Layer: 5
-  m_Name: Weapon
+  m_Name: WeaponViewInPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1042,7 +1042,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1654818945969735738
+--- !u!114 &2305615153341520439
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1051,18 +1051,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1896832137274033245}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e88a5b23b10f5c94a8b537d6174afaec, type: 3}
+  m_Script: {fileID: 11500000, guid: f4174e082f7c8c6479ceaec65b40969c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _label: {fileID: 1896832136924301970}
-  _icon: {fileID: 1896832135935656292}
-  _price: {fileID: 1896832136735226882}
-  _damage: {fileID: 1896832137567925597}
-  _speed: {fileID: 1896832136840610847}
-  _sellButton: {fileID: 1896832135844284369}
-  _background: {fileID: 1896832137274033235}
-  _MainWeaponColor: {r: 1, g: 1, b: 1, a: 1}
-  _BonusWeaponColor: {r: 1, g: 0.8996227, b: 0.7311321, a: 1}
+  Label: {fileID: 1896832136924301970}
+  Icon: {fileID: 1896832135935656292}
+  Price: {fileID: 1896832136735226882}
+  Damage: {fileID: 1896832137567925597}
+  Speed: {fileID: 1896832136840610847}
+  Background: {fileID: 1896832137274033235}
+  MainWeaponColor: {r: 1, g: 1, b: 1, a: 1}
+  BonusWeaponColor: {r: 0.98039216, g: 0.8862745, b: 0.69803923, a: 1}
+  _setWeapon: {fileID: 1896832135844284369}
 --- !u!1 &1896832137567925599
 GameObject:
   m_ObjectHideFlags: 0

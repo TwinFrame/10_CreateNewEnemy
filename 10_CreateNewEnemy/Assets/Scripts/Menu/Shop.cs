@@ -7,15 +7,25 @@ public class Shop : MonoBehaviour
 {
 	[SerializeField] private List<Weapon> _weapons;
 	[SerializeField] private Player _player;
-	[SerializeField] private WeaponView _shopTemplate;
-	[SerializeField] private WeaponViewAtPlayer _playerTemplate;
+	[SerializeField] private WeaponViewInShop _shopTemplate;
+	[SerializeField] private WeaponViewInPlayer _playerTemplate;
 	[SerializeField] private GameObject _itemShopContainer;
 	[SerializeField] private GameObject _itemPlayerContainer;
+	[SerializeField] private PlayerSetWeapon _PlayerPanel;
 
 	private void Start()
 	{
 		for (int i = 0; i < _weapons.Count; i++)
 		{
+			foreach (var currentBarrel in _player.CurrentTwoBarrels)
+			{
+				if (currentBarrel == _weapons[i])
+				{
+					_weapons[i].ApplyIsBuyed(true);
+					break;
+				}
+			}
+
 			AddItemInShop(_weapons[i]);
 		}
 	}
@@ -27,34 +37,16 @@ public class Shop : MonoBehaviour
 		view.SellButtonClick += OnSellButtonClick;
 
 		view.Render(weapon);
+
+		view.TryLockItem();
 	}
 
-	private void AddItemInPlayer(Weapon weapon)
-	{
-		var view = Instantiate(_shopTemplate, _itemPlayerContainer.transform);
-
-		view.Render(weapon);
-	}
-
-	private void RefreshItemInPlayer()
-	{
-		for (int i = 0; i < _itemPlayerContainer.transform.childCount; i++)
-		{
-			Destroy(_itemPlayerContainer.transform.GetChild(i).gameObject);
-		}
-
-		for (int i = 0; i < _player.Barrels.Count; i++)
-		{
-			AddItemInPlayer(_player.Barrels[i]);
-		}
-	}
-
-	private void OnSellButtonClick(Weapon weapon, WeaponView view)
+	private void OnSellButtonClick(Weapon weapon, WeaponViewInShop view)
 	{
 		TrySellWeapon(weapon, view);
 	}
 
-	private void TrySellWeapon(Weapon weapon, WeaponView view)
+	private void TrySellWeapon(Weapon weapon, WeaponViewInShop view)
 	{
 		if (weapon.Price <= _player.Money)
 		{
@@ -64,7 +56,7 @@ public class Shop : MonoBehaviour
 
 				Debug.Log("Sell is Done.");
 
-				RefreshItemInPlayer();
+				_PlayerPanel.RefreshItemInPlayer();
 			}
 
 			view.SellButtonClick -= OnSellButtonClick;

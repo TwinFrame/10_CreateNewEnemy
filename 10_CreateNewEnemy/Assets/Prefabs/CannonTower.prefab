@@ -80,11 +80,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maximumHealth: 100
-  _barrels:
-  - {fileID: 5030877921279732835, guid: f31f90d02f164124d908b74f07369742, type: 3}
-  - {fileID: 2613415358091591392, guid: fa0b4911df55de243adb308e09a5f291, type: 3}
   _barrelMainPositionInsideTower: {fileID: 44894668081773103}
   _barrelStartPositionInsideTower: {fileID: 44894666255079160}
+  _currentTwobarrels:
+  - {fileID: 5030877921279732835, guid: dfa1ecf8276805540a0ebec529a3704b, type: 3}
+  - {fileID: 2613415358091591392, guid: bee94730c8b767142b64a63dad0c0509, type: 3}
 --- !u!60 &44894666373761613
 PolygonCollider2D:
   m_ObjectHideFlags: 0
