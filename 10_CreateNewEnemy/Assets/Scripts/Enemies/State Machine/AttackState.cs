@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class AttackState : State
 {
-	//[SerializeField] private int _damage; //переписать на damage у enemy взять
 	[SerializeField] private float _delay;
 
 	private float _lastAttackTime;

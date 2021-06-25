@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -8
+  m_SortingOrder: -5
   m_Sprite: {fileID: 4035971589510897276, guid: d877c77994a547d4a823d8bd0b8ff7e6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -97,10 +97,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _label: Barrel Small
-  price: 200
-  _icon: {fileID: 4035971589510897276, guid: d877c77994a547d4a823d8bd0b8ff7e6, type: 3}
+  _price: 100
+  _mainBarrel: 1
   Bullet: {fileID: 785655965555581340, guid: 28c18159c22da744b95f0bb069fe7e7c, type: 3}
   ShootPosition: {fileID: 4628929166882864706}
+  _isBuyed: 0
 --- !u!1 &3135482142059959009
 GameObject:
   m_ObjectHideFlags: 0

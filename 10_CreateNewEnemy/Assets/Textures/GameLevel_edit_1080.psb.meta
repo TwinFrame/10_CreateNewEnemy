@@ -98,8 +98,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 3839
-      y: 4
+      x: 3670
+      y: 277
       width: 101
       height: 79
     spriteID: e864511f6ed76bb42a49b1f6f5bb6f67
@@ -112,7 +112,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 2787, y: -754}
+    uvTransform: {x: 2618, y: -481}
   - name: Island_Mid1
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -164,8 +164,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4036
-      y: 4
+      x: 3940
+      y: 320
       width: 31
       height: 44
     spriteID: e4823a43e0deb644e816353ceaf97d86
@@ -1190,7 +1190,7 @@ ScriptedImporter:
     - {x: 86, y: 95}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 3075, y: -631}
+    uvTransform: {x: 2979, y: -315}
   - name: Grass2
     originalName: 
     pivot: {x: 0.5, y: 0}
@@ -1198,8 +1198,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4012
-      y: 179
+      x: 4023
+      y: 4
       width: 61
       height: 61
     spriteID: 3418de9e54994e943b59742a85d7823f
@@ -2904,7 +2904,7 @@ ScriptedImporter:
     - {x: 149, y: 161}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 2728, y: -459}
+    uvTransform: {x: 2739, y: -634}
   - name: Liana
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -2912,8 +2912,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 3551
-      y: 4
+      x: 3190
+      y: 277
       width: 280
       height: 92
     spriteID: 23795991314bd3d45ba83715b41b0884
@@ -2926,7 +2926,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 3063, y: -271}
+    uvTransform: {x: 2702, y: 2}
   - name: Wall_Grass
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -2978,8 +2978,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 3995
-      y: 4
+      x: 3899
+      y: 277
       width: 33
       height: 52
     spriteID: 92506848f4b193c4a8fb4cc9b34f928d
@@ -2992,7 +2992,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 3768, y: -321}
+    uvTransform: {x: 3672, y: -48}
   - name: Ground_Grass_Right
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -3000,8 +3000,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 3948
-      y: 4
+      x: 2289
+      y: 1035
       width: 39
       height: 48
     spriteID: acaf4ea0372629d43974948ae29bc0c4
@@ -3014,7 +3014,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 2874, y: -325}
+    uvTransform: {x: 1215, y: 706}
   - name: Ground_Grass
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -4571,8 +4571,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 2162
-      y: 1035
+      x: 3991
+      y: 277
       width: 34
       height: 34
     spriteID: 2c1ea4b9ab992d349a4778e3e6481874
@@ -4585,7 +4585,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 767, y: 562}
+    uvTransform: {x: 2596, y: -196}
   - name: BG
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -4630,6 +4630,248 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 2530, y: -81}
+  - name: Coin
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2226
+      y: 1035
+      width: 55
+      height: 55
+    spriteID: 597589889acaeaf42bf401c5d5bda913
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1728, y: -85}
+  - name: Button
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 8, y: 8, z: 8, w: 8}
+    rect:
+      serializedVersion: 2
+      x: 3744
+      y: 87
+      width: 184
+      height: 75
+    spriteID: 991402cbe6c6a2d479f4b1544f5ae961
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 3256, y: -908}
+  - name: CoinBar
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3478
+      y: 277
+      width: 184
+      height: 75
+    spriteID: 5f819489f44799149901ff21f86d8c0a
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 2990, y: -833}
+  - name: Heart
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3940
+      y: 277
+      width: 43
+      height: 35
+    spriteID: a90ab62d67516d4468cf1e19712f4500
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 3228, y: -853}
+  - name: HealthBar
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3551
+      y: 4
+      width: 464
+      height: 75
+    spriteID: 6f1e0a0fe4ab51f479b6f3bb303c5870
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 2851, y: -1106}
+  - name: ProgressIcon
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2162
+      y: 1035
+      width: 56
+      height: 56
+    spriteID: 1672a457be4a5a040ad10ec292e66437
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1664, y: -163}
+  - name: DollarIcon
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3858
+      y: 277
+      width: 33
+      height: 76
+    spriteID: 001f1c9740f2fd54c9eb161c2376ab54
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 3146, y: -717}
+  - name: StarIcon
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4012
+      y: 179
+      width: 79
+      height: 75
+    spriteID: ad7254550f3b2e74aba31f917889e731
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 3239, y: -816}
+  - name: DamageIcon
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3779
+      y: 277
+      width: 71
+      height: 75
+    spriteID: 9d2fca0b3ecee304f992a0a31820f732
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 2747, y: -718}
+  - name: SpeedIcon
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3936
+      y: 87
+      width: 137
+      height: 75
+    spriteID: fa7ee5e5adc2bf24391aa6cb05946dbb
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 3066, y: -908}
+  - name: WhitePanel
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 6, y: 6, z: 6, w: 6}
+    rect:
+      serializedVersion: 2
+      x: 3551
+      y: 86
+      width: 185
+      height: 77
+    spriteID: db492faab074a3042ad57c6522b470ab
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 3063, y: -820}
   platformSettings:
   - name: DefaultTexturePlatform
     overridden: 0
@@ -4726,13 +4968,90 @@ ScriptedImporter:
   characterMode: 1
   mosaicPSDLayers: []
   rigPSDLayers:
+  - name: WhitePanel
+    spriteName: WhitePanel
+    isGroup: 0
+    parentIndex: -1
+    spriteID: db492faab074a3042ad57c6522b470ab
+    layerID: 336
+    mosaicPosition: {x: 3551, y: 87}
+  - name: DollarIcon
+    spriteName: DollarIcon
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 001f1c9740f2fd54c9eb161c2376ab54
+    layerID: 322
+    mosaicPosition: {x: 3858, y: 277}
+  - name: StarIcon
+    spriteName: StarIcon
+    isGroup: 0
+    parentIndex: -1
+    spriteID: ad7254550f3b2e74aba31f917889e731
+    layerID: 327
+    mosaicPosition: {x: 4012, y: 179}
+  - name: DamageIcon
+    spriteName: DamageIcon
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 9d2fca0b3ecee304f992a0a31820f732
+    layerID: 334
+    mosaicPosition: {x: 3779, y: 277}
+  - name: SpeedIcon
+    spriteName: SpeedIcon
+    isGroup: 0
+    parentIndex: -1
+    spriteID: fa7ee5e5adc2bf24391aa6cb05946dbb
+    layerID: 332
+    mosaicPosition: {x: 3936, y: 87}
+  - name: ProgressIcon
+    spriteName: ProgressIcon
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 1672a457be4a5a040ad10ec292e66437
+    layerID: 321
+    mosaicPosition: {x: 2162, y: 1035}
+  - name: Coin
+    spriteName: Coin
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 597589889acaeaf42bf401c5d5bda913
+    layerID: 315
+    mosaicPosition: {x: 2226, y: 1035}
+  - name: Button
+    spriteName: Button
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 991402cbe6c6a2d479f4b1544f5ae961
+    layerID: 320
+    mosaicPosition: {x: 3744, y: 87}
+  - name: CoinBar
+    spriteName: CoinBar
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 5f819489f44799149901ff21f86d8c0a
+    layerID: 317
+    mosaicPosition: {x: 3478, y: 277}
+  - name: Heart
+    spriteName: Heart
+    isGroup: 0
+    parentIndex: -1
+    spriteID: a90ab62d67516d4468cf1e19712f4500
+    layerID: 312
+    mosaicPosition: {x: 3940, y: 277}
+  - name: HealthBar
+    spriteName: HealthBar
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 6f1e0a0fe4ab51f479b6f3bb303c5870
+    layerID: 308
+    mosaicPosition: {x: 3551, y: 4}
   - name: Island_Small
     spriteName: Island_Small
     isGroup: 0
     parentIndex: -1
     spriteID: e864511f6ed76bb42a49b1f6f5bb6f67
     layerID: 293
-    mosaicPosition: {x: 3839, y: 4}
+    mosaicPosition: {x: 3670, y: 277}
   - name: Island_Mid1
     spriteName: Island_Mid1
     isGroup: 0
@@ -4760,21 +5079,21 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: e4823a43e0deb644e816353ceaf97d86
     layerID: 176
-    mosaicPosition: {x: 4036, y: 4}
+    mosaicPosition: {x: 3940, y: 320}
   - name: Grass2
     spriteName: Grass2
     isGroup: 0
     parentIndex: -1
     spriteID: 3418de9e54994e943b59742a85d7823f
     layerID: 168
-    mosaicPosition: {x: 4012, y: 179}
+    mosaicPosition: {x: 4023, y: 4}
   - name: Liana
     spriteName: Liana
     isGroup: 0
     parentIndex: -1
     spriteID: 23795991314bd3d45ba83715b41b0884
     layerID: 159
-    mosaicPosition: {x: 3551, y: 4}
+    mosaicPosition: {x: 3190, y: 277}
   - name: Wall_Grass
     spriteName: Wall_Grass
     isGroup: 0
@@ -4795,14 +5114,14 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 92506848f4b193c4a8fb4cc9b34f928d
     layerID: 297
-    mosaicPosition: {x: 3995, y: 4}
+    mosaicPosition: {x: 3899, y: 277}
   - name: Ground_Grass_Right
     spriteName: Ground_Grass_Right
     isGroup: 0
     parentIndex: -1
     spriteID: acaf4ea0372629d43974948ae29bc0c4
     layerID: 299
-    mosaicPosition: {x: 3948, y: 4}
+    mosaicPosition: {x: 2289, y: 1035}
   - name: Ground_Grass
     spriteName: Ground_Grass
     isGroup: 0
@@ -4844,7 +5163,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 2c1ea4b9ab992d349a4778e3e6481874
     layerID: 11
-    mosaicPosition: {x: 2162, y: 1035}
+    mosaicPosition: {x: 3991, y: 277}
   - name: BG
     spriteName: BG
     isGroup: 0

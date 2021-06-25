@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2769140914538113736}
   - component: {fileID: 2769140914538113737}
-  - component: {fileID: 2769140914538113742}
   m_Layer: 0
   m_Name: Pistols_Wheel
   m_TagString: Untagged
@@ -71,7 +70,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -4
+  m_SortingOrder: -7
   m_Sprite: {fileID: 6957563717044758685, guid: d877c77994a547d4a823d8bd0b8ff7e6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -83,18 +82,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2769140914538113742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2769140914538113739}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89665889bda797b4ea7db0091bf4283b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2769140915543289379
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,7 +152,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -5
+  m_SortingOrder: -8
   m_Sprite: {fileID: 8893488457001881474, guid: d877c77994a547d4a823d8bd0b8ff7e6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -220,7 +207,7 @@ GameObject:
   - component: {fileID: 2769140916273413917}
   - component: {fileID: 2769140916273413904}
   - component: {fileID: 2769140916273413905}
-  - component: {fileID: 2769140916273413898}
+  - component: {fileID: 6226384492761945623}
   - component: {fileID: 2769140916273413909}
   - component: {fileID: 2769140916273413908}
   - component: {fileID: 2769140916273413911}
@@ -317,7 +304,6 @@ MonoBehaviour:
   _label: Pistol
   _maximumHealth: 100
   _reward: 15
-  _target: {fileID: 0}
   _bullet: {fileID: 1035332437370788780, guid: ed782c49b399ac0419977a6236078a01, type: 3}
   _shootPosition: {fileID: 2769140916052114982}
 --- !u!114 &2769140916273413905
@@ -332,8 +318,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30e3485f450fa7a449e423a49b76ccad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _firstState: {fileID: 2769140916273413898}
---- !u!114 &2769140916273413898
+  _firstState: {fileID: 6226384492761945623}
+--- !u!114 &6226384492761945623
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -342,12 +328,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2769140916273413916}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46d43a0f3d1168448892f9261c311013, type: 3}
+  m_Script: {fileID: 11500000, guid: 7c07af11998446e4aaf31e6b14f7d4ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _transitions:
   - {fileID: 2769140916273413909}
   _speed: 2
+  _wheel: {fileID: 2769140914538113736}
 --- !u!114 &2769140916273413909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -363,6 +350,7 @@ MonoBehaviour:
   _targetState: {fileID: 2769140916273413908}
   _transitionRange: 9
   _rangeSpread: 2
+  _AfterPlayerDyed: {fileID: 2769140916273413911}
 --- !u!114 &2769140916273413908
 MonoBehaviour:
   m_ObjectHideFlags: 0

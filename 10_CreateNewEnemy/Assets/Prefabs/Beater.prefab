@@ -25,13 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7552870221631077468}
-  m_LocalRotation: {x: 0, y: 0, z: 0.99560297, w: 0.09367395}
+  m_LocalRotation: {x: 0, y: 0, z: 0.94551855, w: 0.32556817}
   m_LocalPosition: {x: 0, y: 1.862, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7552870221973274066}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 169.25}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 142}
 --- !u!212 &7552870221631077466
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -6
+  m_SortingOrder: -7
   m_Sprite: {fileID: -7994598616538432678, guid: d877c77994a547d4a823d8bd0b8ff7e6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -209,9 +209,10 @@ MonoBehaviour:
   _label: Beater
   _maximumHealth: 100
   _reward: 10
-  _target: {fileID: 0}
-  _damage: 25
+  _damage: 5
   _hammer: {fileID: 7552870221631077467}
+  _startZrotate: 170
+  _finishZrotate: -10
 --- !u!114 &7552870221973274074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,6 +256,7 @@ MonoBehaviour:
   _targetState: {fileID: 7552870221973274077}
   _transitionRange: 3.2
   _rangeSpread: 0.3
+  _AfterPlayerDyed: {fileID: 7552870221973274078}
 --- !u!114 &7552870221973274077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -366,7 +368,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -5
+  m_SortingOrder: -6
   m_Sprite: {fileID: -5886055964866860174, guid: d877c77994a547d4a823d8bd0b8ff7e6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

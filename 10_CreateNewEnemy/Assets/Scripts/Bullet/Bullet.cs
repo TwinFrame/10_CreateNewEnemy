@@ -34,6 +34,7 @@ public class Bullet : MonoBehaviour
 	}
 
 	public int Damage => _damage;
+	public float Speed => _speed;
 
 	private void Update()
 	{
@@ -44,7 +45,7 @@ public class Bullet : MonoBehaviour
 	{
 		if (collision.gameObject.TryGetComponent<Enemy>(out Enemy enemy) && GetComponentInParent<Enemy>() == null)
 		{
-			enemy.TakeDamage(_damage);
+			enemy.ApplyDamage(_damage);
 
 			Destroy(gameObject);
 
@@ -53,7 +54,7 @@ public class Bullet : MonoBehaviour
 
 		if (collision.gameObject.TryGetComponent<Player>(out Player player) && GetComponentInParent<Player>() == null)
 		{
-			player.TakeDamage(_damage);
+			player.ApplyDamage(_damage);
 
 			Destroy(gameObject);
 

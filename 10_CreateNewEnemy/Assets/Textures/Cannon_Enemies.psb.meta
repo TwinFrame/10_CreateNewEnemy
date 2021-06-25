@@ -98,8 +98,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 361
-      y: 943
+      x: 893
+      y: 87
       width: 41
       height: 41
     spriteID: ea74a992875a30d4bb91d89680615a9f
@@ -112,7 +112,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -755, y: 806}
+    uvTransform: {x: -223, y: -50}
   - name: Bullet_BarrelSmall
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -120,8 +120,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 410
-      y: 943
+      x: 991
+      y: 87
       width: 20
       height: 21
     spriteID: 87c3f2e1d773ce44aa795b884564a2ba
@@ -134,7 +134,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -676, y: 796}
+    uvTransform: {x: -95, y: -60}
   - name: Bullet_Pistol
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -142,8 +142,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 438
-      y: 943
+      x: 893
+      y: 136
       width: 12
       height: 12
     spriteID: 68c5e49e2663e9643ac491cf7c9bb70c
@@ -156,7 +156,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -625, y: 792}
+    uvTransform: {x: -170, y: -15}
   - name: Pistols_Wheel
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -164,8 +164,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 234
-      y: 470
+      x: 365
+      y: 861
       width: 131
       height: 131
     spriteID: 9101e8940435d0f419a17dc48d92b190
@@ -178,7 +178,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -45, y: 470}
+    uvTransform: {x: 86, y: 861}
   - name: Pistols_Cannon
     originalName: 
     pivot: {x: 0.5, y: 0}
@@ -230,8 +230,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 860
+      x: 532
+      y: 4
       width: 322
       height: 75
     spriteID: 69f6c8184958836469b73016ee71a5e5
@@ -244,7 +244,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -720, y: 660}
+    uvTransform: {x: -192, y: -196}
   - name: CannonTower
     originalName: 
     pivot: {x: 0.5, y: 0}
@@ -275,7 +275,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 741
+      y: 861
       width: 353
       height: 111
     spriteID: 1a7b1735c309210428f2cc8b4f958a18
@@ -288,7 +288,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -1166, y: 638}
+    uvTransform: {x: -1166, y: 758}
   - name: BarrelSmall
     originalName: 
     pivot: {x: 0.75, y: 0.5}
@@ -296,8 +296,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 943
+      x: 532
+      y: 157
       width: 349
       height: 60
     spriteID: 0235cf3ad63f8194486a6e7b501a2247
@@ -310,7 +310,95 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -1166, y: 815}
+    uvTransform: {x: -638, y: 29}
+  - name: Bullet_BarrelRedMid
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 942
+      y: 87
+      width: 41
+      height: 40
+    spriteID: 18937dba680020d4a82c66e0ba941c09
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -174, y: -247}
+  - name: Bullet_BarrelRedSmall
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 991
+      y: 116
+      width: 20
+      height: 20
+    spriteID: ec65be63c9b63094baf359c978d33ee5
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -95, y: -228}
+  - name: BarrelRedMid
+    originalName: 
+    pivot: {x: 0.75, y: 0.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 741
+      width: 350
+      height: 112
+    spriteID: 2f50e893d73802041b5615498606b721
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -1167, y: 445}
+  - name: BarrelRedSmall
+    originalName: 
+    pivot: {x: 0.75, y: 0.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 532
+      y: 87
+      width: 353
+      height: 62
+    spriteID: 3d99b1c118b078144af8a32622f1eabe
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -635, y: -344}
   platformSettings:
   - name: DefaultTexturePlatform
     overridden: 0
@@ -395,7 +483,7 @@ ScriptedImporter:
   importHiddenLayers: 0
   importedTextureWidth: 1024
   importedTextureHeight: 1024
-  documentSize: {x: 1681, y: 275}
+  documentSize: {x: 1681, y: 527}
   paperDollMode: 0
   keepDupilcateSpriteName: 0
   spriteCategoryList:
@@ -413,28 +501,56 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: ea74a992875a30d4bb91d89680615a9f
     layerID: 393
-    mosaicPosition: {x: 361, y: 943}
+    mosaicPosition: {x: 893, y: 87}
   - name: Bullet_BarrelSmall
     spriteName: Bullet_BarrelSmall
     isGroup: 0
     parentIndex: -1
     spriteID: 87c3f2e1d773ce44aa795b884564a2ba
     layerID: 387
-    mosaicPosition: {x: 410, y: 943}
+    mosaicPosition: {x: 991, y: 87}
+  - name: Bullet_BarrelRedMid
+    spriteName: Bullet_BarrelRedMid
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 18937dba680020d4a82c66e0ba941c09
+    layerID: 399
+    mosaicPosition: {x: 942, y: 87}
+  - name: Bullet_BarrelRedSmall
+    spriteName: Bullet_BarrelRedSmall
+    isGroup: 0
+    parentIndex: -1
+    spriteID: ec65be63c9b63094baf359c978d33ee5
+    layerID: 398
+    mosaicPosition: {x: 991, y: 116}
+  - name: BarrelRedMid
+    spriteName: BarrelRedMid
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 2f50e893d73802041b5615498606b721
+    layerID: 397
+    mosaicPosition: {x: 4, y: 741}
+  - name: BarrelRedSmall
+    spriteName: BarrelRedSmall
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 3d99b1c118b078144af8a32622f1eabe
+    layerID: 396
+    mosaicPosition: {x: 532, y: 87}
   - name: Bullet_Pistol
     spriteName: Bullet_Pistol
     isGroup: 0
     parentIndex: -1
     spriteID: 68c5e49e2663e9643ac491cf7c9bb70c
     layerID: 381
-    mosaicPosition: {x: 438, y: 943}
+    mosaicPosition: {x: 893, y: 136}
   - name: Pistols_Wheel
     spriteName: Pistols_Wheel
     isGroup: 0
     parentIndex: -1
     spriteID: 9101e8940435d0f419a17dc48d92b190
     layerID: 375
-    mosaicPosition: {x: 234, y: 470}
+    mosaicPosition: {x: 365, y: 861}
   - name: Pistols_Cannon
     spriteName: Pistols_Cannon
     isGroup: 0
@@ -455,7 +571,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 69f6c8184958836469b73016ee71a5e5
     layerID: 170
-    mosaicPosition: {x: 4, y: 860}
+    mosaicPosition: {x: 532, y: 4}
   - name: CannonTower
     spriteName: CannonTower
     isGroup: 0
@@ -469,14 +585,14 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 1a7b1735c309210428f2cc8b4f958a18
     layerID: 18
-    mosaicPosition: {x: 4, y: 741}
+    mosaicPosition: {x: 4, y: 861}
   - name: BarrelSmall
     spriteName: BarrelSmall
     isGroup: 0
     parentIndex: -1
     spriteID: 0235cf3ad63f8194486a6e7b501a2247
     layerID: 10
-    mosaicPosition: {x: 4, y: 943}
+    mosaicPosition: {x: 532, y: 157}
   characterData:
     bones: []
     parts: []

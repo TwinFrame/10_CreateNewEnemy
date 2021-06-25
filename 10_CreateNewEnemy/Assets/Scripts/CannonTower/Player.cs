@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Player))]
@@ -8,10 +9,11 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 	[SerializeField] private int _maximumHealth;
-	[SerializeField] private List<Barrel> _barrels;
+	[SerializeField] private List<Barrel> _currentTwobarrels;
 	[SerializeField] private Transform _barrelMainPositionInsideTower;
 	[SerializeField] private Transform _barrelStartPositionInsideTower;
 
+	private List<Barrel> _barrels = new List<Barrel>();
 	private float _timePullBarrel = 0.25f;
 	private float _currentPullTime;
 
@@ -28,6 +30,10 @@ public class Player : MonoBehaviour
 	private Animator _animator;
 
 	public int Money { get; private set; }
+	public List<Barrel>  Barrels => _barrels;
+
+	public event UnityAction<int, int> HealthChanged;
+	public event UnityAction<int> MoneyChanged;
 
 	private void Awake()
 	{
@@ -44,9 +50,11 @@ public class Player : MonoBehaviour
 
 	private void Start()
 	{
-		InitiateBarrel(_barrels[_currentNumBarrelFromList]);
+		InitiateBarrel(_currentTwobarrels[_currentNumBarrelFromList]);
 
 		_pullInBarrelJob = StartCoroutine(PullInBarrel());
+
+		MoneyChanged?.Invoke(Money);
 	}
 
 	private void Update()
@@ -75,9 +83,11 @@ public class Player : MonoBehaviour
 		_currentBarrel = Instantiate(barrel, _barrelStartPositionInsideTower.position, Quaternion.identity, transform);
 	}
 
-	public void TakeDamage(int damage)
+	public void ApplyDamage(int damage)
 	{
 		_health -= damage;
+
+		HealthChanged?.Invoke(_health, _maximumHealth);
 
 		if (_health <= 0)
 		{
@@ -90,6 +100,26 @@ public class Player : MonoBehaviour
 	public void AddMoney(int money)
 	{
 		Money += money;
+
+		MoneyChanged?.Invoke(Money);
+	}
+
+	public bool BuyWeapon(Weapon weapon)
+	{
+		if (!weapon.TryGetComponent<Barrel>(out Barrel barrel))
+		{
+			return false;
+		}
+		else
+		{
+			Money -= weapon.Price;
+
+			_barrels.Add(barrel);
+
+			MoneyChanged?.Invoke(Money);
+
+			return true;
+		}
 	}
 
 	private IEnumerator PowerfulWeaponForTime()
@@ -133,12 +163,12 @@ public class Player : MonoBehaviour
 		if (_currentNumBarrelFromList == 0)
 		{
 			_currentNumBarrelFromList = 1;
-			InitiateBarrel(_barrels[_currentNumBarrelFromList]);
+			InitiateBarrel(_currentTwobarrels[_currentNumBarrelFromList]);
 		}
 		else
 		{
 			_currentNumBarrelFromList = 0;
-			InitiateBarrel(_barrels[_currentNumBarrelFromList]);
+			InitiateBarrel(_currentTwobarrels[_currentNumBarrelFromList]);
 		}
 
 		while (_currentPullTime < _timePullBarrel)
