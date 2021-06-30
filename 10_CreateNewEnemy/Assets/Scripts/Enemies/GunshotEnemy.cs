@@ -12,8 +12,6 @@ public class GunshotEnemy : Enemy
 	{
 		Instantiate(_bullet, _shootPosition.position, Quaternion.identity, transform);
 
-
-
 		//тут нужно переводить в MoveState 
 	}
 }

@@ -11,52 +11,60 @@ public class Player : MonoBehaviour
 	[SerializeField] private int _maximumHealth;
 	[SerializeField] private Transform _barrelMainPositionInsideTower;
 	[SerializeField] private Transform _barrelStartPositionInsideTower;
-	[SerializeField] private List<Barrel> _currentTwobarrels = new List<Barrel>(2);
+	[SerializeField] private List<Barrel> _currentTwoBarrels = new List<Barrel>(2);
 
-	private List<Barrel> _barrels = new List<Barrel>();
+	private List<Barrel> _unusedBarrels = new List<Barrel>();
 	private float _timePullBarrel = 0.25f;
+	private float _BonusWeaponTime = 5f;
 	private float _currentPullTime;
 
 	private Coroutine _pullInBarrelJob;
 	private Coroutine _changingBarrelJob;
 	private Coroutine _powerfulWeaponForTimeJob;
-	private WaitForSeconds _timeOfPowerfulWeapon;
-	private WaitForSeconds _timeForEndingPowerfulWeapon;
+	private WaitForSeconds _waitBonusWeaponTime;
+	private WaitForSeconds _waitChangeBarrelTime;
 	private bool _isPowerfulWeapon;
 
 	private int _health;
 	private Barrel _currentBarrel;
-	private int _currentNumBarrelFromList;
+	private Barrel _currenMainBarrelAtTimeEnteringMenu;
+	private int _currentBarrelNumber;
 	private Animator _animator;
 
 	public int Money { get; private set; }
 
-	public List<Barrel>  Barrels => _barrels;
-	public List<Barrel>  CurrentTwoBarrels => _currentTwobarrels;
+	public List<Barrel>  UnusedBarrels => _unusedBarrels;
+	public List<Barrel>  CurrentTwoBarrels => _currentTwoBarrels;
 
 	public event UnityAction<int, int> HealthChanged;
 	public event UnityAction<int> MoneyChanged;
+	public event UnityAction<float> StartBonusWeaponPeriod;
 
 	private void Awake()
 	{
-		_timeOfPowerfulWeapon = new WaitForSeconds(5f);
+		_waitBonusWeaponTime = new WaitForSeconds(_BonusWeaponTime);
 
-		_timeForEndingPowerfulWeapon = new WaitForSeconds(_timePullBarrel);
+		_waitChangeBarrelTime = new WaitForSeconds(_timePullBarrel);
 
 		SetMaximumHealth();
 
 		_animator = GetComponent<Animator>();
 
-		_currentNumBarrelFromList = 0;
+		_currentBarrelNumber = 0;
 	}
 
 	private void Start()
 	{
-		InitiateBarrel(_currentTwobarrels[_currentNumBarrelFromList]);
+		MarkCurrentTwoBarrels();
+
+		foreach (var currentBarrel in _currentTwoBarrels)
+			currentBarrel.ApplyIsBuyed(true);
+
+		InitiateCurrentBarrel(_currentTwoBarrels[_currentBarrelNumber]);
 
 		_pullInBarrelJob = StartCoroutine(PullInBarrel());
 
-		Money = 500;
+		//Money = 500;
 
 		MoneyChanged?.Invoke(Money);
 	}
@@ -72,8 +80,33 @@ public class Player : MonoBehaviour
 		{
 			if (!_isPowerfulWeapon)
 			{
-				_powerfulWeaponForTimeJob = StartCoroutine(PowerfulWeaponForTime());
+				_powerfulWeaponForTimeJob = StartCoroutine(BonusWeaponPeriod());
 			}
+		}
+	}
+
+	private void MarkCurrentTwoBarrels()
+	{
+		foreach (var currentBarrel in _currentTwoBarrels)
+			currentBarrel.ApplyCurrentWeapon(true);
+	}
+
+	public void SaveCurrentMainBarrelAtTimeEnterMenu()
+	{
+		_currenMainBarrelAtTimeEnteringMenu = _currentTwoBarrels[0];
+	}
+
+	public void TryChangeCurrentMainBarrelAfterExitMenu()
+	{
+		if (_currenMainBarrelAtTimeEnteringMenu == null)
+			return;
+
+		if (_currenMainBarrelAtTimeEnteringMenu != _currentTwoBarrels[0])
+		{
+			if (_changingBarrelJob != null)
+				StopCoroutine(_changingBarrelJob);
+
+			_changingBarrelJob = StartCoroutine(ChangingBarrel(_currentTwoBarrels[0]));
 		}
 	}
 
@@ -82,7 +115,7 @@ public class Player : MonoBehaviour
 		_health = _maximumHealth;
 	}
 
-	private void InitiateBarrel(Barrel barrel)
+	private void InitiateCurrentBarrel(Barrel barrel)
 	{
 		_currentBarrel = Instantiate(barrel, _barrelStartPositionInsideTower.position, Quaternion.identity, transform);
 	}
@@ -118,7 +151,7 @@ public class Player : MonoBehaviour
 		{
 			Money -= weapon.Price;
 
-			_barrels.Add(barrel);
+			_unusedBarrels.Add(barrel);
 
 			MoneyChanged?.Invoke(Money);
 
@@ -126,66 +159,101 @@ public class Player : MonoBehaviour
 		}
 	}
 
-	public bool SetCurrentWeapon(Barrel barrel)
+	public List<Weapon> GetAllWeapons()
 	{
-		Barrel currentMainBarrel = _currentTwobarrels[0];
-		Barrel currentBonusBarrel = _currentTwobarrels[1];
+		List<Weapon> allWeapons = new List<Weapon>();
 
-		List<Barrel> currentBarrels = new List<Barrel>(2);
+		foreach (var currentBarrel in _currentTwoBarrels)
+		{
+			allWeapons.Add(currentBarrel);
+		}
 
-		_barrels.Remove(barrel);
+		foreach (var barrel in _unusedBarrels)
+		{
+			allWeapons.Add(barrel);
+		}
+
+		return allWeapons;
+	}
+
+	public List<Weapon> GetUnusedWeapons()
+	{
+		List<Weapon> unusedWeapons = new List<Weapon>();
+
+		foreach (var barrel in _unusedBarrels)
+		{
+			unusedWeapons.Add(barrel);
+		}
+
+		return unusedWeapons;
+	}
+
+	public bool SetCurrentBarrelFromUnusedBarrel(Barrel barrel)
+	{
+		Barrel currentMainBarrel = _currentTwoBarrels[0];
+		Barrel currentBonusBarrel = _currentTwoBarrels[1];
 
 		if (barrel.MainBarrel)
-			return ChangeTwoBarrels(barrel, currentBonusBarrel, currentMainBarrel);
+		{
+			_unusedBarrels.Remove(barrel);
+
+			return ChangeCurrentTwoBarrels(barrel, currentBonusBarrel, currentMainBarrel);
+		}
 
 		if (!barrel.MainBarrel)
-			return ChangeTwoBarrels(currentMainBarrel, barrel, currentBonusBarrel);
+		{
+			_unusedBarrels.Remove(barrel);
+
+			return ChangeCurrentTwoBarrels(currentMainBarrel, barrel, currentBonusBarrel);
+		}
 
 		return false;
 	}
 
-	private bool ChangeTwoBarrels(Barrel barrel0, Barrel barrel1, Barrel removeFromCurrent)
+	private bool ChangeCurrentTwoBarrels(Barrel mainBarrel, Barrel bonusBarrel, Barrel removeFromCurrent)
 	{
-		_currentTwobarrels.Clear();
+		_currentTwoBarrels.Clear();
 
-		_currentTwobarrels.Insert(0, barrel0);
-		_currentTwobarrels.Insert(1, barrel1);
-
-		foreach (var currentBarrel in _currentTwobarrels)
-		{
-			currentBarrel.ApplyCurrentWeapon(true);
-		}
+		_currentTwoBarrels.Insert(0, mainBarrel);
+		_currentTwoBarrels.Insert(1, bonusBarrel);
 
 		if (removeFromCurrent != null)
 		{
 			removeFromCurrent.ApplyCurrentWeapon(false);
-			_barrels.Add(removeFromCurrent);
+			_unusedBarrels.Add(removeFromCurrent);
 		}
+
+		MarkCurrentTwoBarrels();
 
 		return true;
 	}
 
-	private IEnumerator PowerfulWeaponForTime()
+	private IEnumerator BonusWeaponPeriod()
 	{
 		_isPowerfulWeapon = true;
 
-		_changingBarrelJob = StartCoroutine(ChangingBarrel());
+		if(_changingBarrelJob != null)
+			StopCoroutine(_changingBarrelJob);
 
-		yield return _timeOfPowerfulWeapon;
+		_changingBarrelJob = StartCoroutine(ChangingBarrel(_currentTwoBarrels[1]));
+
+		yield return _waitChangeBarrelTime;
+
+		StartBonusWeaponPeriod?.Invoke(_BonusWeaponTime);
+
+		yield return _waitBonusWeaponTime;
 
 		if (_changingBarrelJob != null)
-		{
 			StopCoroutine(_changingBarrelJob);
-		}
 
-		_changingBarrelJob = StartCoroutine(ChangingBarrel());
+		_changingBarrelJob = StartCoroutine(ChangingBarrel(_currentTwoBarrels[0]));
 
-		yield return _timeForEndingPowerfulWeapon;
+		yield return _waitChangeBarrelTime;
 
 		_isPowerfulWeapon = false;
 	}
 
-	private IEnumerator ChangingBarrel()
+	private IEnumerator ChangingBarrel(Barrel newBarrel)
 	{
 		while (_currentPullTime < _timePullBarrel)
 		{
@@ -201,18 +269,9 @@ public class Player : MonoBehaviour
 
 		Destroy(_currentBarrel.gameObject);
 
-		_currentPullTime = 0;
+		InitiateCurrentBarrel(newBarrel);
 
-		if (_currentNumBarrelFromList == 0)
-		{
-			_currentNumBarrelFromList = 1;
-			InitiateBarrel(_currentTwobarrels[_currentNumBarrelFromList]);
-		}
-		else
-		{
-			_currentNumBarrelFromList = 0;
-			InitiateBarrel(_currentTwobarrels[_currentNumBarrelFromList]);
-		}
+		_currentPullTime = 0;
 
 		while (_currentPullTime < _timePullBarrel)
 		{

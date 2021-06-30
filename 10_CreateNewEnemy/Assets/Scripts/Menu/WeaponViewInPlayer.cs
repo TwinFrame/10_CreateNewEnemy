@@ -6,26 +6,26 @@ using UnityEngine.UI;
 
 public class WeaponViewInPlayer : WeaponView
 {
-	[SerializeField] private Button _setWeapon;
+	[SerializeField] private Button _setWeaponButton;
 
 	public event UnityAction<Weapon, WeaponViewInPlayer> SetButtonClick;
 
 	private void OnEnable()
 	{
-		_setWeapon.onClick.AddListener(OnButtonClick);
-		_setWeapon.onClick.AddListener(TryLockItem);
+		_setWeaponButton.onClick.AddListener(OnButtonClick);
+		_setWeaponButton.onClick.AddListener(TryLockItem);
 	}
 
 	private void OnDisable()
 	{
-		_setWeapon.onClick.RemoveListener(OnButtonClick);
-		_setWeapon.onClick.RemoveListener(TryLockItem);
+		_setWeaponButton.onClick.RemoveListener(OnButtonClick);
+		_setWeaponButton.onClick.RemoveListener(TryLockItem);
 	}
 	public void TryLockItem()
 	{
 		if (Weapon.CurrentWeapon)
 		{
-			_setWeapon.gameObject.SetActive(false);
+			_setWeaponButton.gameObject.SetActive(false);
 		}
 	}
 

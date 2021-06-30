@@ -5,40 +5,48 @@ using UnityEngine;
 
 public class Shop : MonoBehaviour
 {
-	[SerializeField] private List<Weapon> _weapons;
+	[SerializeField] private List<Weapon> _weapons = new List<Weapon>();
 	[SerializeField] private Player _player;
 	[SerializeField] private WeaponViewInShop _shopTemplate;
-	[SerializeField] private WeaponViewInPlayer _playerTemplate;
 	[SerializeField] private GameObject _itemShopContainer;
 	[SerializeField] private GameObject _itemPlayerContainer;
-	[SerializeField] private PlayerSetWeapon _PlayerPanel;
 
-	private void Start()
+	public void RefreshItemInShop()
 	{
-		for (int i = 0; i < _weapons.Count; i++)
-		{
-			foreach (var currentBarrel in _player.CurrentTwoBarrels)
-			{
-				if (currentBarrel == _weapons[i])
-				{
-					_weapons[i].ApplyIsBuyed(true);
-					break;
-				}
-			}
+		RefreshContainer(_itemShopContainer, _weapons);
+		RefreshContainer(_itemPlayerContainer, _player.GetAllWeapons());
+	}
 
-			AddItemInShop(_weapons[i]);
+	private void RefreshContainer(GameObject container, List<Weapon> weapon)
+	{
+		for (int i = 0; i < container.transform.childCount; i++)
+		{
+			Destroy(container.transform.GetChild(i).gameObject);
+		}
+
+		for (int i = 0; i < weapon.Count; i++)
+		{
+			AddItem(weapon[i], container);
 		}
 	}
 
-	private void AddItemInShop(Weapon weapon)
+	private void AddItem(Weapon weapon, GameObject container)
 	{
-		var view = Instantiate(_shopTemplate, _itemShopContainer.transform);
+		var view = Instantiate(_shopTemplate, container.transform);
 
 		view.SellButtonClick += OnSellButtonClick;
 
 		view.Render(weapon);
 
-		view.TryLockItem();
+		if (container == _itemShopContainer)
+		{
+			view.TryLockItem();
+		}
+
+		if (container == _itemPlayerContainer)
+		{
+			view.DisableButton();
+		}		
 	}
 
 	private void OnSellButtonClick(Weapon weapon, WeaponViewInShop view)
@@ -54,9 +62,9 @@ public class Shop : MonoBehaviour
 			{
 				weapon.Buy();
 
-				Debug.Log("Sell is Done.");
+				RefreshItemInShop();
 
-				_PlayerPanel.RefreshItemInPlayer();
+				Debug.Log("Sell is Done.");
 			}
 
 			view.SellButtonClick -= OnSellButtonClick;

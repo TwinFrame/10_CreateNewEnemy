@@ -36,7 +36,5 @@ public class WeaponView : MonoBehaviour
 		{
 			Background.color = BonusWeaponColor;
 		}
-
-		//TryLockItem();
 	}
 }

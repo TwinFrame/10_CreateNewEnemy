@@ -303,7 +303,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _label: Pistol
   _maximumHealth: 100
-  _reward: 15
+  _reward: 20
   _bullet: {fileID: 1035332437370788780, guid: ed782c49b399ac0419977a6236078a01, type: 3}
   _shootPosition: {fileID: 2769140916052114982}
 --- !u!114 &2769140916273413905
@@ -350,7 +350,6 @@ MonoBehaviour:
   _targetState: {fileID: 2769140916273413908}
   _transitionRange: 9
   _rangeSpread: 2
-  _AfterPlayerDyed: {fileID: 2769140916273413911}
 --- !u!114 &2769140916273413908
 MonoBehaviour:
   m_ObjectHideFlags: 0

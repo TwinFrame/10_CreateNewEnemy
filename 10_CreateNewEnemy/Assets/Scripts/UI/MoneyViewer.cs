@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CoinBar : CountBar
+public class MoneyViewer : NumberViewer
 {
-	[SerializeField] private Player _player;
-
 	private void OnEnable()
 	{
 		_player.MoneyChanged += OnValueChanged;
+
+		_text.text = _player.Money.ToString();
 	}
 
 	private void OnDisable()

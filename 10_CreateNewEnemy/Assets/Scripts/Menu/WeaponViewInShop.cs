@@ -27,8 +27,12 @@ public class WeaponViewInShop : WeaponView
 		if (Weapon.IsBuyed)
 		{
 			_sellButton.interactable = false;
-			//_sellButton.gameObject.SetActive(false);
 		}
+	}
+
+	public void DisableButton()
+	{
+		_sellButton.gameObject.SetActive(false);
 	}
 
 	private void OnButtonClick()

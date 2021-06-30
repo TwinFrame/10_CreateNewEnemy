@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _label: Barrel Red Mid
-  _price: 60
+  _price: 300
   _mainBarrel: 0
   Bullet: {fileID: 2522808960143744807, guid: 9e1d11452cadff54b9ffe2a090763dc1, type: 3}
   ShootPosition: {fileID: 3280896855847668831}

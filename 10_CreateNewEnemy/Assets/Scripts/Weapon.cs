@@ -12,7 +12,6 @@ public abstract class Weapon : MonoBehaviour
 	[SerializeField] private bool _isBuyed = false;
 	[SerializeField] private bool _isCurrentWeapon = false;
 
-
 	public string Label => _label;
 	public int Price => _price;
 	public bool IsBuyed => _isBuyed;

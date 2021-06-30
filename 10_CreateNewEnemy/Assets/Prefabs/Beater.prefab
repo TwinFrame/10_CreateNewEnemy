@@ -208,7 +208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _label: Beater
   _maximumHealth: 100
-  _reward: 10
+  _reward: 15
   _damage: 5
   _hammer: {fileID: 7552870221631077467}
   _startZrotate: 170
@@ -256,7 +256,6 @@ MonoBehaviour:
   _targetState: {fileID: 7552870221973274077}
   _transitionRange: 3.2
   _rangeSpread: 0.3
-  _AfterPlayerDyed: {fileID: 7552870221973274078}
 --- !u!114 &7552870221973274077
 MonoBehaviour:
   m_ObjectHideFlags: 0

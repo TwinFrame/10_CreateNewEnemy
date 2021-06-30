@@ -1062,7 +1062,7 @@ MonoBehaviour:
   Background: {fileID: 1896832137274033235}
   MainWeaponColor: {r: 1, g: 1, b: 1, a: 1}
   BonusWeaponColor: {r: 0.98039216, g: 0.8862745, b: 0.69803923, a: 1}
-  _setWeapon: {fileID: 1896832135844284369}
+  _setWeaponButton: {fileID: 1896832135844284369}
 --- !u!1 &1896832137567925599
 GameObject:
   m_ObjectHideFlags: 0
