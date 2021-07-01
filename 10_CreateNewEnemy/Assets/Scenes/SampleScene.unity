@@ -1937,7 +1937,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.03345129, y: 0.809}
   m_AnchorMax: {x: 0.8685487, y: 1}
-  m_AnchoredPosition: {x: -239.91998, y: 1.9056549}
+  m_AnchoredPosition: {x: -239.91974, y: 1.9055939}
   m_SizeDelta: {x: -479.84, y: -2.971}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &360810683
@@ -3209,7 +3209,7 @@ GameObject:
   - component: {fileID: 587114684}
   - component: {fileID: 587114683}
   m_Layer: 5
-  m_Name: TextLog
+  m_Name: ShopTextLog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3256,10 +3256,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 40
+    m_FontSize: 35
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 3
     m_MaxSize: 42
     m_Alignment: 3
     m_AlignByGeometry: 0
@@ -5263,19 +5263,7 @@ MonoBehaviour:
   _itemPlayerContainer: {fileID: 1357295054}
   _dontHaveEnoughMoney:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 821421654}
-        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
-        m_MethodName: OpenElement
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &825622967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7561,7 +7549,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.03345129, y: 0.809}
   m_AnchorMax: {x: 0.8685487, y: 1}
-  m_AnchoredPosition: {x: 582.01, y: 3.367752}
+  m_AnchoredPosition: {x: 582.01, y: 3.36763}
   m_SizeDelta: {x: -809.06, y: -6.634}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1145009923
@@ -10215,7 +10203,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.03345129, y: 0.809}
   m_AnchorMax: {x: 0.8685487, y: 1}
-  m_AnchoredPosition: {x: 589.75, y: 1.9056549}
+  m_AnchoredPosition: {x: 589.75, y: 1.9055939}
   m_SizeDelta: {x: -728.15, y: -2.971}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1549091181
@@ -11662,7 +11650,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.03345129, y: 0.809}
   m_AnchorMax: {x: 0.8685487, y: 1}
-  m_AnchoredPosition: {x: -417.32007, y: 3.367752}
+  m_AnchoredPosition: {x: -417.32013, y: 3.36763}
   m_SizeDelta: {x: -814.89, y: -6.634}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1819909295
