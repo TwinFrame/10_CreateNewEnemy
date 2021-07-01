@@ -63,8 +63,6 @@ public class PlayerChangeWeapon : MonoBehaviour
 			if (_player.SetCurrentBarrelFromUnusedBarrel(barrel))
 			{
 				RefreshItemInPlayer();
-
-				Debug.Log("Set is Done.");
 			}
 
 			view.SetButtonClick -= OnSetButtonClick;

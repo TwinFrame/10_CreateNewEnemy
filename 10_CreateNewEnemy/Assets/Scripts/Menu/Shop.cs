@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Shop : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class Shop : MonoBehaviour
 	[SerializeField] private WeaponViewInShop _shopTemplate;
 	[SerializeField] private GameObject _itemShopContainer;
 	[SerializeField] private GameObject _itemPlayerContainer;
+
+	[SerializeField] private DontHaveEnoughMoney _dontHaveEnoughMoney;
 
 	public void RefreshItemInShop()
 	{
@@ -51,10 +54,13 @@ public class Shop : MonoBehaviour
 
 	private void OnSellButtonClick(Weapon weapon, WeaponViewInShop view)
 	{
-		TrySellWeapon(weapon, view);
+		if (!TrySellWeapon(weapon, view))
+		{
+			_dontHaveEnoughMoney?.Invoke(weapon.Price - _player.Money);
+		}
 	}
 
-	private void TrySellWeapon(Weapon weapon, WeaponViewInShop view)
+	private bool TrySellWeapon(Weapon weapon, WeaponViewInShop view)
 	{
 		if (weapon.Price <= _player.Money)
 		{
@@ -63,11 +69,16 @@ public class Shop : MonoBehaviour
 				weapon.Buy();
 
 				RefreshItemInShop();
-
-				Debug.Log("Sell is Done.");
 			}
 
 			view.SellButtonClick -= OnSellButtonClick;
+
+			return true;
 		}
+
+		return false;
 	}
 }
+
+[System.Serializable]
+public class DontHaveEnoughMoney : UnityEvent<int> { }

@@ -6,7 +6,7 @@ using DG.Tweening;
 
 public class Menu : MonoBehaviour
 {
-	[SerializeField] Player _player;
+	[SerializeField] private Player _player;
 
 	public void OpenPanel(GameObject panel)
 	{
@@ -28,15 +28,6 @@ public class Menu : MonoBehaviour
 	public void CloseElement(GameObject element)
 	{
 		element.SetActive(false);
-	}
-
-	public void TemporaryMessage(string message, Text text)
-	{
-		Sequence temporaryMessage = DOTween.Sequence();
-
-		temporaryMessage.Append(text.DOText(message, 1f, true)).SetRelative();
-		temporaryMessage.PrependInterval(1f).SetRelative();
-		temporaryMessage.Append(text.DOText("", 1f, true)).SetRelative();
 	}
 
 	public void Exit()
