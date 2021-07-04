@@ -5,6 +5,8 @@ using UnityEngine.Events;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Player))]
+[RequireComponent(typeof(AudioSource))]
+
 
 public class Player : MonoBehaviour
 {
@@ -12,6 +14,7 @@ public class Player : MonoBehaviour
 	[SerializeField] private Transform _barrelMainPositionInsideTower;
 	[SerializeField] private Transform _barrelStartPositionInsideTower;
 	[SerializeField] private List<Barrel> _currentTwoBarrels = new List<Barrel>(2);
+	[SerializeField] private AudioClip _changeWeaponsSound;
 
 	private List<Barrel> _unusedBarrels = new List<Barrel>();
 	private float _timePullBarrel = 0.25f;
@@ -30,6 +33,7 @@ public class Player : MonoBehaviour
 	private Barrel _currenMainBarrelAtTimeEnteringMenu;
 	private int _currentBarrelNumber;
 	private Animator _animator;
+	private AudioSource _audioSource;
 
 	public int Money { get; private set; }
 
@@ -49,6 +53,8 @@ public class Player : MonoBehaviour
 		SetMaximumHealth();
 
 		_animator = GetComponent<Animator>();
+
+		_audioSource = GetComponent<AudioSource>();
 
 		_currentBarrelNumber = 0;
 	}
@@ -78,10 +84,7 @@ public class Player : MonoBehaviour
 
 		if (Input.GetMouseButtonDown(1))
 		{
-			if (!_isPowerfulWeapon)
-			{
-				_powerfulWeaponForTimeJob = StartCoroutine(BonusWeaponPeriod());
-			}
+			StartingBonusWeaponPeriod();
 		}
 	}
 
@@ -89,6 +92,14 @@ public class Player : MonoBehaviour
 	{
 		foreach (var currentBarrel in _currentTwoBarrels)
 			currentBarrel.ApplyCurrentWeapon(true);
+	}
+
+	public void StartingBonusWeaponPeriod()
+	{
+		if (!_isPowerfulWeapon)
+		{
+			_powerfulWeaponForTimeJob = StartCoroutine(BonusWeaponPeriod());
+		}
 	}
 
 	public void SaveCurrentMainBarrelAtTimeEnterMenu()
@@ -237,6 +248,8 @@ public class Player : MonoBehaviour
 
 		_changingBarrelJob = StartCoroutine(ChangingBarrel(_currentTwoBarrels[1]));
 
+		_audioSource.PlayOneShot(_changeWeaponsSound);
+
 		yield return _waitChangeBarrelTime;
 
 		StartBonusWeaponPeriod?.Invoke(_BonusWeaponTime);
@@ -248,6 +261,8 @@ public class Player : MonoBehaviour
 
 		_changingBarrelJob = StartCoroutine(ChangingBarrel(_currentTwoBarrels[0]));
 
+		_audioSource.PlayOneShot(_changeWeaponsSound);
+
 		yield return _waitChangeBarrelTime;
 
 		_isPowerfulWeapon = false;
@@ -255,6 +270,8 @@ public class Player : MonoBehaviour
 
 	private IEnumerator ChangingBarrel(Barrel newBarrel)
 	{
+		_audioSource.PlayOneShot(_changeWeaponsSound);
+
 		while (_currentPullTime < _timePullBarrel)
 		{
 			_currentPullTime += Time.deltaTime;

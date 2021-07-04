@@ -100,6 +100,7 @@ MonoBehaviour:
   _damage: 10
   _speed: 8
   _directionOfMovement: 1
+  _shootSound: {fileID: 8300000, guid: b28b3f424f6d1c04b9f5a039d754b4f4, type: 3}
 --- !u!58 &3656962808889272686
 CircleCollider2D:
   m_ObjectHideFlags: 0

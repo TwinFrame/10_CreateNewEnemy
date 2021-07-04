@@ -10,6 +10,9 @@ public class Bullet : MonoBehaviour
 	[SerializeField] private int _damage;
 	[SerializeField] private float _speed;
 	[SerializeField] private Direction _directionOfMovement;
+	[SerializeField] private AudioClip _shootSound;
+
+	public AudioClip ShootSound => _shootSound;
 
 	private Vector2 _direction;
 

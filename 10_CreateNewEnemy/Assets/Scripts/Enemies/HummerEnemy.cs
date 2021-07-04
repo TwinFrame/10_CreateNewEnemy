@@ -11,6 +11,8 @@ public class HummerEnemy : Enemy
 	[SerializeField] private float _startZrotate;
 	[SerializeField] private float _finishZrotate;
 
+	[SerializeField] private AudioClip _hitSound;
+
 	private bool _isKicking;
 	private float _kickingTime = 0.25f;
 	private float _currentTime;
@@ -25,6 +27,8 @@ public class HummerEnemy : Enemy
 
 		if (!_isKicking)
 			_hummerKickingJob = StartCoroutine(HummerKicking());
+
+		_audioSource.PlayOneShot(_hitSound);
 	}
 
 	private IEnumerator HummerKicking()

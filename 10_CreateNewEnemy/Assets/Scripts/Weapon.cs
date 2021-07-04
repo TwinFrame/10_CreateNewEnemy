@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
+
 public abstract class Weapon : MonoBehaviour
 {
 	[SerializeField] private string _label;
@@ -22,6 +24,13 @@ public abstract class Weapon : MonoBehaviour
 
 	public Bullet BulletThisWeapon => Bullet;
 
+	private AudioSource _audioSource;
+
+	private void Awake()
+	{
+		_audioSource = GetComponent<AudioSource>();
+	}
+
 	public void Buy()
 	{
 		_isBuyed = true;
@@ -40,5 +49,7 @@ public abstract class Weapon : MonoBehaviour
 	public void Shoot()
 	{
 		Instantiate(Bullet, ShootPosition.position, Quaternion.identity, transform.parent);
+
+		_audioSource.PlayOneShot(Bullet.ShootSound);
 	}
 }

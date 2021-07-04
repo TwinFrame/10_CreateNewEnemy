@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(Enemy))]
+[RequireComponent(typeof(AudioSource))]
 
 public abstract class Enemy : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public abstract class Enemy : MonoBehaviour
 
 	private Player _target;
 	private int _health;
+	protected AudioSource _audioSource;
 
 	public event UnityAction<Enemy> Dying;
 
@@ -22,6 +24,7 @@ public abstract class Enemy : MonoBehaviour
 	private void Awake()
 	{
 		_health = _maximumHealth;
+		_audioSource = GetComponent<AudioSource>();
 	}
 
 	public abstract void Hit();
